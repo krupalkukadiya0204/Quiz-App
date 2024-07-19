@@ -1,4 +1,3 @@
-// Quiz.js
 import React, { useState } from 'react';
 import quizData from './quizData';
 
@@ -32,34 +31,34 @@ function Quiz() {
   };
 
   return (
-    <div className='quiz'>
+    <div className="quiz">
       {showScore ? (
-        <div className='score-section'>
-          <h2>Quiz Completed!</h2>
-          <p>You scored {score} out of {quizData.length}.</p>
+        <div className="score-section">
+          You scored {score} out of {quizData.length}
         </div>
       ) : (
         <>
-          <div className='question-section'>
-            <div className='question-count'>
+        <i className="fas fa-cloud"></i>
+          <div className="question-section">
+            <div className="question-count">
               <span>Question {currentQuestion + 1}</span>/{quizData.length}
             </div>
-            <div className='question-text'>{quizData[currentQuestion].question}</div>
+            <div className="question-text">{quizData[currentQuestion].question}</div>
           </div>
-          <div className='answer-section'>
+          <div className="answer-section">
             {quizData[currentQuestion].options.map((option) => (
               <button 
                 onClick={() => handleAnswerOptionClick(option)} 
                 key={option}
-                className={`answer-btn ${selectedAnswer === option ? (isCorrect ? 'correct' : 'incorrect') : ''}`}
+                className={`btn ${selectedAnswer === option ? (isCorrect ? 'btn-success' : 'btn-danger') : 'btn-primary'}`}
               >
                 {option}
               </button>
             ))}
           </div>
           {selectedAnswer && (
-            <div className='feedback-section'>
-              {isCorrect ? <p className='correct'>Correct! </p> : <p className='incorrect'>Sorry, that’s not right.</p>}
+            <div className="mt-2">
+              {isCorrect ? 'Correct! 🎉' : 'Sorry, that’s not right. 😢'}
             </div>
           )}
         </>
