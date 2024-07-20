@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import quizData from './quizData';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
